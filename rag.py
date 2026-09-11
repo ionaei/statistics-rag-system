@@ -55,7 +55,6 @@ def ask_question(question: str):
         k=TOP_K
     )
 
-    # Build context for the LLM
     context_parts = []
 
     for i, doc in enumerate(docs):
@@ -63,46 +62,47 @@ def ask_question(question: str):
 
         context_parts.append(
             f"""
-Source {i + 1}
-Page: {page}
+            Source {i + 1}
+            Page: {page}
 
-{doc.page_content}
-"""
+            {doc.page_content}
+            """
         )
 
     context = "\n\n".join(context_parts)
 
     # Prompt
     prompt = f"""
-You are a helpful assistant answering questions about the textbook
-"An Introduction to Statistical Learning with Applications in Python".
+    You are a helpful assistant answering questions about the textbook
+    "An Introduction to Statistical Learning with Applications in Python".
 
-Answer the question using ONLY the supplied context.
+    Answer the question using ONLY the supplied context.
 
-If the answer cannot be found in the context, say:
-"I could not find enough information in the textbook to answer this question."
+    If the answer cannot be found in the context, say:
+    "I could not find enough information in the textbook to answer this question."
 
-Do not invent information.
+    Do not invent information.
 
-When possible, mention the page number(s) that support your answer.
+    When possible, mention the page number(s) that support your answer.
 
-CONTEXT:
-{context}
+    CONTEXT:
+    {context}
 
-QUESTION:
-{question}
+    QUESTION:
+    {question}
 
-ANSWER:
-"""
+    ANSWER:
+    """
 
     # Send prompt to Llama 3.1
     response = llm.invoke(prompt)
 
     return response.content, docs
 
+question = input("Enter your question: ")
 
 answer, sources = ask_question(
-    "What is cross-validation and why is it useful?"
+    question
 )
 
 print(answer)

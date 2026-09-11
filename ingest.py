@@ -35,12 +35,12 @@ def clean_text(text: str) -> str:
     """
     Basic cleaning while preserving paragraph structure.
     """
-    text = text.replace("\x00", "")
+    text = text.replace("\x00", "") # Remove null characters
 
     # Remove excessive spaces
     lines = [line.strip() for line in text.splitlines()]
 
-    # Remove empty runs while retaining paragraph breaks
+    # Remove empty lines while preserving paragraph breaks
     cleaned_lines = []
     previous_empty = False
 

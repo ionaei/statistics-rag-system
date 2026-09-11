@@ -18,7 +18,7 @@ TOP_K = 5
 # LOAD MODELS + VECTOR STORE
 # ---------------------------------------------------------
 
-@st.cache_resource
+@st.cache_resource # Cache the models and vector store to avoid reloading on every interaction
 def load_rag_components():
 
     embeddings = HuggingFaceEmbeddings(
@@ -64,38 +64,38 @@ def ask_question(question):
 
         context_parts.append(
             f"""
-SOURCE {i + 1}
-Page: {page}
+        SOURCE {i + 1}
+        Page: {page}
 
-{doc.page_content}
-"""
+        {doc.page_content}
+        """
         )
 
     context = "\n\n".join(context_parts)
 
     prompt = f"""
-You are answering questions about the textbook
-"An Introduction to Statistical Learning with Applications in Python".
+    You are answering questions about the textbook
+    "An Introduction to Statistical Learning with Applications in Python".
 
-Answer the question using ONLY the supplied textbook context.
+    Answer the question using ONLY the supplied textbook context.
 
-If the answer cannot be found in the context, say:
-"I could not find enough information in the textbook to answer this question."
+    If the answer cannot be found in the context, say:
+    "I could not find enough information in the textbook to answer this question."
 
-Do not invent information.
+    Do not invent information.
 
-Give a clear and concise answer.
+    Give a clear and concise answer.
 
-At the end, mention the page numbers used.
+    At the end, mention the page numbers used.
 
-CONTEXT:
-{context}
+    CONTEXT:
+    {context}
 
-QUESTION:
-{question}
+    QUESTION:
+    {question}
 
-ANSWER:
-"""
+    ANSWER:
+    """
 
     response = llm.invoke(prompt)
 
