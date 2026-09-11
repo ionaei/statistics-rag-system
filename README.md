@@ -117,7 +117,7 @@ The application also requires **Ollama** to be installed separately because the 
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/ionaei/statistics-rag-system
 cd statistics-rag-system
 ```
 
