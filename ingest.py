@@ -123,8 +123,9 @@ vector_store = Chroma.from_documents(
     documents=chunks,
     embedding=embeddings,
     collection_name=COLLECTION_NAME,
-    persist_directory=CHROMA_DIR
-)
+    persist_directory=CHROMA_DIR,
+    collection_metadata={"hnsw:space": "cosine"}
+) 
 
 print(f"Stored {len(chunks)} chunks in Chroma")
 print(f"Chroma database saved to: {CHROMA_DIR}")
