@@ -103,6 +103,7 @@ Generated automatically by `ingest.py`. Contains the persistent Chroma vector da
 ### `data/`
 
 Create folder for ISLP.pdf 
+
 ---
 
 ## Requirements
