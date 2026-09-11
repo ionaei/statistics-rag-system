@@ -88,6 +88,10 @@ statistics-rag-system/
 
 Processes the source PDF, splits the text into chunks, generates embeddings, and creates the Chroma vector database.
 
+### `rag.py`
+
+RAG system, designed to run on the terminal, with interactive input for user. 
+
 ### `app.py`
 
 Loads the existing Chroma database, retrieves relevant chunks for a user's question, sends the retrieved context to Llama 3.1, and provides a Streamlit interface.
@@ -96,6 +100,9 @@ Loads the existing Chroma database, retrieves relevant chunks for a user's quest
 
 Generated automatically by `ingest.py`. Contains the persistent Chroma vector database.
 
+### `data/`
+
+Create folder for ISLP.pdf 
 ---
 
 ## Requirements
