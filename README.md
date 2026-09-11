@@ -301,24 +301,6 @@ Exact versions are provided in `requirements.txt`.
 
 ---
 
-## Current Limitations
-
-This implementation intentionally keeps the RAG architecture simple.
-
-Current limitations include:
-
-* Retrieval uses basic vector similarity rather than hybrid retrieval.
-* Chunking primarily uses textual boundaries rather than full semantic section detection.
-* Tables, mathematical notation, figures, and code may not always be extracted optimally from the PDF.
-* Retrieval currently uses a fixed `top_k=5`.
-* There is no reranking stage.
-* Page references are based on PDF page metadata and may differ from printed textbook page numbers.
-* LLM generation is limited by the capabilities of the locally installed Llama 3.1 model.
-
-Possible extensions include hybrid BM25/vector retrieval, reranking, query rewriting, section-aware chunking, retrieval evaluation, and more sophisticated handling of tables and figures.
-
----
-
 ## Privacy
 
 The system is designed to run locally.
