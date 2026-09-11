@@ -70,7 +70,7 @@ These chunks are passed to Llama 3.1 as context. The model is instructed to answ
 ## Project Structure
 
 ```text
-medpace_RAG/
+statistics-rag-system/
 │
 ├── app.py
 ├── ingest.py
@@ -118,7 +118,7 @@ The application also requires **Ollama** to be installed separately because the 
 
 ```bash
 git clone <repository-url>
-cd medpace_RAG
+cd statistics-rag-system
 ```
 
 ### 2. Create a Python environment
@@ -126,8 +126,8 @@ cd medpace_RAG
 Using Conda:
 
 ```bash
-conda create -n medpace_rag python=3.11
-conda activate medpace_rag
+conda create -n statistics_rag python=3.11
+conda activate statistics_rag
 ```
 
 Alternatively, using `venv`:
